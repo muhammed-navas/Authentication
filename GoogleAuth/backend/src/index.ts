@@ -3,7 +3,10 @@ import cors from "cors";
 import dotenv from "dotenv";
 import passport from "passport";
 import session from "express-session";
-import Googlerouter from "./routes/googleRoute";
+import Googlerouter from "./routes/googleRoute.js";
+
+// Import your passport configuration
+import './config/passport.js'
 
 dotenv.config();
 
@@ -19,15 +22,17 @@ app.use(
 );
 
 // Session configuration
-app.use(session({
-  secret: 'your-session-secret',
-  resave: false,
-  saveUninitialized: false,
-  cookie: {
-    secure: process.env.NODE_ENV === 'production',
-    maxAge: 24 * 60 * 60 * 1000 // 24 hours
-  }
-}));
+app.use(
+  session({
+    secret: "your-session-secret",
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+      secure: process.env.NODE_ENV === "production",
+      maxAge: 24 * 60 * 60 * 1000, // 24 hours
+    },
+  })
+);
 
 // Initialize Passport
 app.use(passport.initialize());
