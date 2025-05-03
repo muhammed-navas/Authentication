@@ -9,6 +9,7 @@ import ZohoRoute from "./routes/zohoRoute.js";
 
 import './config/passport.js'
 import './config/githubPassport.js'
+import TwitterRoute from "./routes/twitterRoute.js";
 
 dotenv.config();
 
@@ -43,6 +44,7 @@ app.use(passport.session());
 app.use("/auth", Googlerouter);
 app.use("/auth", GithubRoute);
 app.use("/auth/zoho", ZohoRoute);
+app.use("/auth/twitter", TwitterRoute);
 
 // Start server
 app.listen(PORT, () => {

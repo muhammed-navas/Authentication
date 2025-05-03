@@ -1,5 +1,6 @@
 import GithubAuth from "./componetns/GithubAuth"
 import GoogleAuthButton from "./componetns/GoogleAuth"
+import TwitterAuthButton from "./componetns/TwitterAuth";
 import ZohoAuth from "./componetns/ZohoAuth";
 
 const App = () => {
@@ -8,6 +9,7 @@ const App = () => {
       <GoogleAuthButton />
       <GithubAuth />
       <ZohoAuth />
+      <TwitterAuthButton />
     </div>
   );
 }
