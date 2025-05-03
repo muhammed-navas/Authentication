@@ -4,9 +4,10 @@ import dotenv from "dotenv";
 import passport from "passport";
 import session from "express-session";
 import Googlerouter from "./routes/googleRoute.js";
+import GithubRoute from "./routes/githubRoute.js";
 
-// Import your passport configuration
 import './config/passport.js'
+import './config/githubPassport.js'
 
 dotenv.config();
 
@@ -39,6 +40,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use("/auth", Googlerouter);
+app.use("/auth", GithubRoute);
 
 // Start server
 app.listen(PORT, () => {
