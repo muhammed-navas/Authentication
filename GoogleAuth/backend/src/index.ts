@@ -5,6 +5,7 @@ import passport from "passport";
 import session from "express-session";
 import Googlerouter from "./routes/googleRoute.js";
 import GithubRoute from "./routes/githubRoute.js";
+import ZohoRoute from "./routes/zohoRoute.js";
 
 import './config/passport.js'
 import './config/githubPassport.js'
@@ -41,6 +42,7 @@ app.use(passport.session());
 
 app.use("/auth", Googlerouter);
 app.use("/auth", GithubRoute);
+app.use("/auth/zoho", ZohoRoute);
 
 // Start server
 app.listen(PORT, () => {
